@@ -1,0 +1,18 @@
+header {
+    border: 2px solid red;
+}
+
+#info-blocks {
+    border: 2px solid orange;
+    padding: 2em;
+}
+
+.row {
+    border: 2px solid yellow;
+    padding: 1em;
+}
+
+.card {
+    border: 2px solid green;
+    padding: 1em;
+}
