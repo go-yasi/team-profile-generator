@@ -26,4 +26,10 @@ inquirer
             name: "office",
             message: "What is the team manager's office number?"
         },
+        {
+            type: "list",
+            name: "add2team",
+            message: "Let's finish building your team. Which employee would you like to add next?", 
+            choices: ["Engineer", "Intern", "I'm finished building my team."],  
+        },
     ])
