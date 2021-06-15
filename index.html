@@ -15,14 +15,38 @@
     <main id="info-blocks">
         <div class="row">
             <div class="card">
-                <h4 class="name">${manager.getName()}</h4>
-                <h3 class="role"></h3>
-                <p class="id"></p>
-                <p class="email"></p>
-                <p class="office"></p>
+                <div class="card-head">
+                    <h3 class="name">${manager.getName()}</h3>
+                    <h4 class="role">${manager.getRole()}</h4>
+                </div>
+                <div class="card-info">
+                    <p class="info" id="id">ID: ${manager.getId()}</p>
+                    <a class="info" id="email">Email:  ${manager.getEmail()}</a>
+                    <p class="info" id="office">Office: ${manager.getOffice()}</p>
+                </div>       
             </div>
-            <div class="card"></div>
-            <div class="card"></div>
+            <div class="card">
+                <!-- <div class="card-head">
+                    <h3 class="name">${manager.getName()}</h3>
+                    <h4 class="role">${manager.getRole()}</h4>
+                </div>
+                <div class="card-info">
+                    <p class="id">ID: ${manager.getId()}</p>
+                    <a class="email">Email:  ${manager.getEmail()}</a>
+                    <p class="office">Office: ${manager.getOffice()}</p>
+                </div>  -->
+            </div>
+            <div class="card">
+                <!-- <div class="card-head">
+                    <h3 class="name">${manager.getName()}</h3>
+                    <h4 class="role">${manager.getRole()}</h4>
+                </div>
+                <div class="card-info">
+                    <p class="id">ID: ${manager.getId()}</p>
+                    <a class="email">Email:  ${manager.getEmail()}</a>
+                    <p class="office">Office: ${manager.getOffice()}</p>
+                </div>  -->
+            </div>
         </div>
     </main>
 </body>

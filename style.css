@@ -1,5 +1,9 @@
 header {
     border: 2px solid red;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #info-blocks {
@@ -10,9 +14,33 @@ header {
 .row {
     border: 2px solid yellow;
     padding: 1em;
+    display: flex;
+    justify-content: center;
 }
 
 .card {
     border: 2px solid green;
-    padding: 1em;
+    margin: 0 2vw;
+}
+
+.card-head {
+    border: 1px solid blue;
+    padding: 0 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h4 {
+    margin-top: 0;
+}
+
+.card-info {
+    border: 1px solid purple;
+    padding: 0 1em;
+}
+
+.info {
+    border: 1px solid pink;
 }
