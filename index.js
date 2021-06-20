@@ -1,67 +1,65 @@
+// require inquirer
 const inquirer = require("inquirer");
+// require fs to write files
 const fs = require("fs");
 
-const writeFile = (answers) => 
-`
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Team Profile</title>
-</head>
-<body>
-    <header>
-        <h1>My Team</h1>
-    </header>
+// import classes
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 
-    <main id="info-blocks">
-        <div class="row">
-            <div class="card">
-                <h4 class="name">${manager.getName()}</h4>
-                <h3 class="role">${manager.getRole()}</h3>
-                <p class="id">${manager.getId()}</p>
-                <p class="email">${manager.getEmail()}</p>
-                <p class="office">${manager.getOffice()}</p>
-            </div>
-            <div class="card"></div>
-            <div class="card"></div>
-        </div>
-    </main>
-</body>
-</html>`
+// empty array to add new team members
+const teamProfile = [];
 
-inquirer
-    .prompt ([
-        {
-            type: "input",
-            name: "name",
-            message: "What is the team manager's name?"
-        },
-        {
-            type: "input",
-            name: "id",
-            message: "What is the team manager's ID?"
-        },
-        {
-            type: "input",
-            name: "email",
-            message: "What is the team manager's email address?"
-        },
-        {
-            type: "input",
-            name: "office",
-            message: "What is the team manager's office number?"
-        },
-        {
-            type: "list",
-            name: "add2team",
-            message: "Let's finish building your team. Which employee would you like to add next?", 
-            choices: ["Engineer", "Intern", "I'm finished building my team."],  
-        },
-    ])
-    .then((answers) => {
-        const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
-    })
+// function to prompt questions about Manager and add to array
+const addManager = () => {
+    return inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "name",
+                message: "What is the team manager's name?"
+            },
+            {
+                type: "input",
+                name: "id",
+                message: "What is the team manager's employee ID?"
+            },
+            {
+                type: "input",
+                name: "email",
+                message: "What is the team manager's email address?"
+            },
+            {
+                type: "input",
+                name: "office",
+                message: "What is the team manager's office number?"
+            }
+        ])
+        .then((answers) => {
+            const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
+            teamProfile.push(manager);
+        });
+}
+
+const nextMember = () => {
+    return inquirer
+        .prompt([
+            {
+                type: "list",
+                message: "Let's finish building your team! Which type of employee would you like to add?",
+                choices: ["Engineer", "Intern", "I'm finished building my team."]
+                name: "employee"
+            }
+        ])
+        .then((answers) => {
+            if (answers.employee === "Engineer") {
+                // need function to ask Engineer-specific questions
+            } else if 
+            (answers.employee === "Intern") {
+                // need function to ask Intern-specific questions
+            } else {
+                // genereate HTML
+            }
+        })
+}

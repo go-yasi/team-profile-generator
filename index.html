@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Team Profile</title>
 </head>
 <body>
@@ -14,15 +14,15 @@
 
     <main id="info-blocks">
         <div class="row">
-            <div class="card">
+            <div class="manager-card">
                 <div class="card-head">
-                    <h3 class="name">${manager.getName()}</h3>
-                    <h4 class="role">${manager.getRole()}</h4>
+                    <h4 class="name">${answers.name}</h4>
+                    <h3 class="role">Manager</h3>
                 </div>
                 <div class="card-info">
-                    <p class="info" id="id">ID: ${manager.getId()}</p>
-                    <a class="info" id="email">Email:  ${manager.getEmail()}</a>
-                    <p class="info" id="office">Office: ${manager.getOffice()}</p>
+                    <p class="id">${answers.id}</p>
+                    <p class="email">${answers.email}</p>
+                    <p class="office">${answers.office}</p>
                 </div>       
             </div>
             <div class="card">
