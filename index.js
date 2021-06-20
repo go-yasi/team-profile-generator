@@ -37,8 +37,12 @@ const addManager = () => {
             }
         ])
         .then((answers) => {
+            // grab user inputs
             const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
+            // add mamanger to team
             teamProfile.push(manager);
+            // run function to add next member
+            nextMember();
         });
 }
 
@@ -61,5 +65,39 @@ const nextMember = () => {
             } else {
                 // genereate HTML
             }
+        })
+}
+
+const addEngineer = () => {
+    return inquirer
+        .prompt([
+            {
+                type: "input",
+                message: "What is the engineer's name?",
+                name: "name"
+            },
+            {
+                type: "input",
+                message: "What is the engineer's employee ID?",
+                name: "id"
+            },
+            {
+                type: "input",
+                message: "What is the engineer's email address?",
+                name: "email"
+            },
+            {
+                type: "input",
+                message: "What is the engineer's GitHub username?",
+                name:"github"
+            }
+        ])
+        .then((answers) => {
+            // grab user inputs
+            const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+            // add to team
+            teamProfile.push(engineer);
+            // run function to add next member
+            nextMember();
         })
 }
