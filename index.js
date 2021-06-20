@@ -63,6 +63,7 @@ const nextMember = () => {
             } else if 
             (answers.employee === "Intern") {
                 // need function to ask Intern-specific questions
+                addIntern();
             } else {
                 // genereate HTML
             }
@@ -94,10 +95,44 @@ const addEngineer = () => {
             }
         ])
         .then((answers) => {
-            // grab user inputs
+            // grab user inputs fo new engineer
             const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
             // add to team
             teamProfile.push(engineer);
+            // run function to add next member
+            nextMember();
+        })
+}
+
+const addIntern = () => {
+    return inquirer
+        .prompt([
+            {
+                type: "input",
+                message: "What is the intern's name?",
+                name: "name"
+            },
+            {
+                type: "input",
+                message: "What is the intern's employee ID?",
+                name: "id"
+            },
+            {
+                type: "input",
+                message: "What is the intern's email address?",
+                name: "email"
+            },
+            {
+                type: "input",
+                message: "What school does the intern attend?",
+                name: "school"
+            }
+        ])
+        .then((answers) => {
+            // grab user inputs for new intern
+            const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+            // add new intern to team
+            teamProfile.push(intern);
             // run function to add next member
             nextMember();
         })
