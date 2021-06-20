@@ -58,7 +58,8 @@ const nextMember = () => {
         ])
         .then((answers) => {
             if (answers.employee === "Engineer") {
-                // need function to ask Engineer-specific questions
+                // function to ask Engineer-specific questions
+                addEngineer();
             } else if 
             (answers.employee === "Intern") {
                 // need function to ask Intern-specific questions
