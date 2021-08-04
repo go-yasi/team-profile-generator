@@ -12,31 +12,31 @@ const Intern = require("./lib/Intern");
 const teamProfile = [];
 
 function addEmployee(type) {
-    console.log("Enter " + type + " info");
+    console.log("Please provide the " + type + "'s info:");
     inquirer
     .prompt([
         {
             type: "input",
             name: "name",
-            message: "What is the employee's name?"
+            message: `What is the ${type}'s name?`
         },
         {
             type: "input",
             name: "id",
-            message: "What is the employee's ID?"
+            message: `What is the ${type}'s ID?`
         },
         {
             type: "input",
             name: "email",
-            message: "What is the employee's email address?"
+            message: `What is the ${type}'s email address?`
         }
     ])
     .then((employeeResponse) => {
-        if(type === "manager") {
+        if(type === "Manager") {
             addManager(employeeResponse);
-        } else if(type === "engineer") {
+        } else if(type === "Engineer") {
             addEngineer(employeeResponse);
-        } else if(type === "intern") {
+        } else if(type === "Intern") {
             addIntern(employeeResponse);
         }
     });
@@ -50,7 +50,7 @@ function addManager(employeeResponse) {
         {
             type: "input",
             name: "office",
-            message: "What is the team manager's office number?"
+            message: "What is the Manager's office number?"
         }
     ])
     .then((answers) => {
@@ -60,21 +60,14 @@ function addManager(employeeResponse) {
         const email = employeeResponse.email;
         // grab manager info
         const office = answers.office;
-
-        // const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
         
         // create new manager
         const manager = new Manager(name, id, email, office);
         // add manager to team
         teamProfile.push(manager);
 
-        // generate strating HTML with manager info
-        // fs.writeFile("new.html", manager, (err) =>
-        // err ? console.log(err) : console.log("Congratulations! You've started creating your team profile!")
-        // );
-
         // run function to add next employee
-        addEmployee();
+        employeeType();
     });
 };
 
@@ -84,7 +77,7 @@ function addEngineer(employeeResponse) {
     .prompt([
         {
             type: "input",
-            message: "What is the engineer's GitHub username?",
+            message: "What is the Engineer's GitHub username?",
             name:"github"
         }
     ])
@@ -102,7 +95,7 @@ function addEngineer(employeeResponse) {
         teamProfile.push(engineer);
 
         // run function to add next employee
-        addEmployee();
+        employeeType();
     });
 };
 
@@ -113,7 +106,7 @@ function addIntern(employeeResponse){
     .prompt([
         {
             type: "input",
-            message: "What school does the intern attend?",
+            message: "What school does the Intern attend?",
             name: "school"
         }
     ])
@@ -131,7 +124,7 @@ function addIntern(employeeResponse){
         teamProfile.push(intern);
 
         // run function to add next employee
-        addEmployee();
+        employeeType();
     });
 };
 
@@ -142,7 +135,7 @@ function employeeType() {
     .prompt([
         {
             type: "list",
-            message: "Let's build your team! Which type of employee would you like to add?",
+            message: "Let's continue building your team! Which type of employee would you like to add?",
             choices: ["Manager", "Engineer", "Intern", "I'm finished building my team."],
             name: "employeeType"
         }
@@ -189,7 +182,7 @@ function employeeType() {
 
 
 // call function to start application
-addEmployee();
+addEmployee("Manager");
 
 
 
