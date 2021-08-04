@@ -43,7 +43,7 @@ function addEmployee(type) {
 };
 
 
-// function to prompt questions about Manager and add to array
+// function to prompt questions about Manager and push to array
 function addManager(employeeResponse) {
     inquirer
     .prompt([
@@ -78,6 +78,7 @@ function addManager(employeeResponse) {
     });
 };
 
+// function to prompt questions about Engineer and push to array
 function addEngineer(employeeResponse) {
     inquirer
     .prompt([
@@ -105,36 +106,66 @@ function addEngineer(employeeResponse) {
     });
 };
 
-// // function to add an engineer
-// const addEngineer = () => {
+
+// function to prompt questions about Intern and push to array
+function addIntern(employeeResponse){
+    inquirer
+    .prompt([
+        {
+            type: "input",
+            message: "What school does the intern attend?",
+            name: "school"
+        }
+    ])
+    .then((answers) => {
+        // grab employee info
+        const name = employeeResponse.name;
+        const id = employeeResponse.id;
+        const email = employeeResponse.email;
+        // grab intern info
+        const school = answers.school;
+
+        // create new intern
+        const intern = new Intern(name, id, email, school);
+        // add intern to team
+        teamProfile.push(intern);
+        
+        // run function to add next employee
+        addEmployee();
+    });
+};
+
+
+// // function to add an intern
+// const addIntern = () => {
 //     return inquirer
 //         .prompt([
 //             {
 //                 type: "input",
-//                 message: "What is the engineer's name?",
+//                 message: "What is the intern's name?",
 //                 name: "name"
 //             },
 //             {
 //                 type: "input",
-//                 message: "What is the engineer's employee ID?",
+//                 message: "What is the intern's employee ID?",
 //                 name: "id"
 //             },
 //             {
 //                 type: "input",
-//                 message: "What is the engineer's email address?",
+//                 message: "What is the intern's email address?",
 //                 name: "email"
 //             },
 //             {
-//                 type: "input",
-//                 message: "What is the engineer's GitHub username?",
-//                 name:"github"
+                // type: "input",
+                // message: "What school does the intern attend?",
+                // name: "school"
 //             }
 //         ])
 //         .then((answers) => {
-//             // grab user inputs fo new engineer
-//             const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
-//             // add to team
-//             teamProfile.push(engineer);
+//             // grab user inputs for new intern
+//             const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+//             // add new intern to team
+//             teamProfile.push(intern);
 //             // go back to the menu
 //             nextMember();
 //         })
@@ -221,40 +252,7 @@ addEmployee();
 
 
 
-// // function to add an intern
-// const addIntern = () => {
-//     return inquirer
-//         .prompt([
-//             {
-//                 type: "input",
-//                 message: "What is the intern's name?",
-//                 name: "name"
-//             },
-//             {
-//                 type: "input",
-//                 message: "What is the intern's employee ID?",
-//                 name: "id"
-//             },
-//             {
-//                 type: "input",
-//                 message: "What is the intern's email address?",
-//                 name: "email"
-//             },
-//             {
-//                 type: "input",
-//                 message: "What school does the intern attend?",
-//                 name: "school"
-//             }
-//         ])
-//         .then((answers) => {
-//             // grab user inputs for new intern
-//             const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
-//             // add new intern to team
-//             teamProfile.push(intern);
-//             // go back to the menu
-//             nextMember();
-//         })
-// }
+
 
 
 
