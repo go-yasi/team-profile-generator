@@ -64,7 +64,7 @@ function addManager(employeeResponse) {
         // const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
         
         // create new manager
-        const manager = new Manager(name, id, email, office)
+        const manager = new Manager(name, id, email, office);
         // add manager to team
         teamProfile.push(manager);
 
@@ -78,9 +78,67 @@ function addManager(employeeResponse) {
     });
 };
 
+function addEngineer(employeeResponse) {
+    inquirer
+    .prompt([
+        {
+            type: "input",
+            message: "What is the engineer's GitHub username?",
+            name:"github"
+        }
+    ])
+    .then((answers) => {
+        // grab employee info
+        const name = employeeResponse.name;
+        const id = employeeResponse.id;
+        const email = employeeResponse.email;
+        // grab engineer info
+        const github = answers.github;
 
+        // create new engineer
+        const engineer = new Engineer(name, id, email, github);
+        // add engineer to team
+        teamProfile.push(engineer);
 
+        // run function to add next employee
+        addEmployee();
+    });
+};
 
+// // function to add an engineer
+// const addEngineer = () => {
+//     return inquirer
+//         .prompt([
+//             {
+//                 type: "input",
+//                 message: "What is the engineer's name?",
+//                 name: "name"
+//             },
+//             {
+//                 type: "input",
+//                 message: "What is the engineer's employee ID?",
+//                 name: "id"
+//             },
+//             {
+//                 type: "input",
+//                 message: "What is the engineer's email address?",
+//                 name: "email"
+//             },
+//             {
+//                 type: "input",
+//                 message: "What is the engineer's GitHub username?",
+//                 name:"github"
+//             }
+//         ])
+//         .then((answers) => {
+//             // grab user inputs fo new engineer
+//             const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+//             // add to team
+//             teamProfile.push(engineer);
+//             // go back to the menu
+//             nextMember();
+//         })
+// }
 
 // call function to start application
 addEmployee();
@@ -161,40 +219,7 @@ addEmployee();
 //         })
 // }
 
-// // function to add an engineer
-// const addEngineer = () => {
-//     return inquirer
-//         .prompt([
-//             {
-//                 type: "input",
-//                 message: "What is the engineer's name?",
-//                 name: "name"
-//             },
-//             {
-//                 type: "input",
-//                 message: "What is the engineer's employee ID?",
-//                 name: "id"
-//             },
-//             {
-//                 type: "input",
-//                 message: "What is the engineer's email address?",
-//                 name: "email"
-//             },
-//             {
-//                 type: "input",
-//                 message: "What is the engineer's GitHub username?",
-//                 name:"github"
-//             }
-//         ])
-//         .then((answers) => {
-//             // grab user inputs fo new engineer
-//             const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
-//             // add to team
-//             teamProfile.push(engineer);
-//             // go back to the menu
-//             nextMember();
-//         })
-// }
+
 
 // // function to add an intern
 // const addIntern = () => {
