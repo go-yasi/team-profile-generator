@@ -129,47 +129,64 @@ function addIntern(employeeResponse){
         const intern = new Intern(name, id, email, school);
         // add intern to team
         teamProfile.push(intern);
-        
+
         // run function to add next employee
         addEmployee();
     });
 };
 
+// function to select employee type
+function employeeType() {
+    let type;
+    inquirer
+    .prompt([
+        {
+            type: "list",
+            message: "Let's build your team! Which type of employee would you like to add?",
+            choices: ["Manager", "Engineer", "Intern", "I'm finished building my team."],
+            name: "employeeType"
+        }
+    ])
+    .then((answers) => {
+        if (answers.employeeType === "Manager") {
+            addEmployee("Manager");
+        } else if (answers.employeeType === "Engineer") {
+            addEmployee("Engineer");
+        } else if (answers.employeeType === "Intern") {
+            addEmployee("Intern");
+        } else {
+            // function to end
+        }
+    });
+};
 
-// // function to add an intern
-// const addIntern = () => {
+// // function to continue adding team members
+// const nextMember = () => {
 //     return inquirer
 //         .prompt([
 //             {
-//                 type: "input",
-//                 message: "What is the intern's name?",
-//                 name: "name"
-//             },
-//             {
-//                 type: "input",
-//                 message: "What is the intern's employee ID?",
-//                 name: "id"
-//             },
-//             {
-//                 type: "input",
-//                 message: "What is the intern's email address?",
-//                 name: "email"
-//             },
-//             {
-                // type: "input",
-                // message: "What school does the intern attend?",
-                // name: "school"
+                // type: "list",
+                // message: "Let's finish building your team! Which type of employee would you like to add next?",
+                // choices: ["Engineer", "Intern", "I'm finished building my team."],
+                // name: "employee"
 //             }
 //         ])
 //         .then((answers) => {
-//             // grab user inputs for new intern
-//             const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
-//             // add new intern to team
-//             teamProfile.push(intern);
-//             // go back to the menu
-//             nextMember();
+//             if (answers.employee === "Engineer") {
+//                 // function to ask Engineer-specific questions
+//                 addEngineer();
+//             } else if 
+//             (answers.employee === "Intern") {
+//                 // function to ask Intern-specific questions
+//                 addIntern();
+//             } else {
+//                 // need function to append closing HTML
+//                 closeHTML();
+//             }
 //         })
 // }
+
+
 
 // call function to start application
 addEmployee();
@@ -224,31 +241,7 @@ addEmployee();
 
 
 
-// // function to continue adding team members
-// const nextMember = () => {
-//     return inquirer
-//         .prompt([
-//             {
-//                 type: "list",
-//                 message: "Let's finish building your team! Which type of employee would you like to add next?",
-//                 choices: ["Engineer", "Intern", "I'm finished building my team."],
-//                 name: "employee"
-//             }
-//         ])
-//         .then((answers) => {
-//             if (answers.employee === "Engineer") {
-//                 // function to ask Engineer-specific questions
-//                 addEngineer();
-//             } else if 
-//             (answers.employee === "Intern") {
-//                 // function to ask Intern-specific questions
-//                 addIntern();
-//             } else {
-//                 // need function to append closing HTML
-//                 closeHTML();
-//             }
-//         })
-// }
+
 
 
 
