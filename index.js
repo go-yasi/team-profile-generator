@@ -12,7 +12,7 @@ const Intern = require("./lib/Intern");
 const teamProfile = [];
 
 function addEmployee(type) {
-    console.log("Enter" + type + "info");
+    console.log("Enter " + type + " info");
     inquirer
     .prompt([
         {
@@ -44,50 +44,46 @@ function addEmployee(type) {
 
 
 // function to prompt questions about Manager and add to array
-const addManager = () => {
-    return inquirer
-        .prompt([
-            {
-                type: "input",
-                name: "name",
-                message: "What is the team manager's name?"
-            },
-            {
-                type: "input",
-                name: "id",
-                message: "What is the team manager's employee ID?"
-            },
-            {
-                type: "input",
-                name: "email",
-                message: "What is the team manager's email address?"
-            },
-            {
-                type: "input",
-                name: "office",
-                message: "What is the team manager's office number?"
-            }
-        ])
-        .then((answers) => {
+function addManager(employeeResponse) {
+    inquirer
+    .prompt([
+        {
+            type: "input",
+            name: "office",
+            message: "What is the team manager's office number?"
+        }
+    ])
+    .then((answers) => {
+        // grab employee info
+        const name = employeeResponse.name;
+        const id = employeeResponse.id;
+        const email = employeeResponse.email;
+        // grab manager info
+        const office = answers.office;
 
-            // grab user inputs
-            const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
-            // add mamanger to team
-            teamProfile.push(manager);
-            // generate strating HTML with manager info
-            fs.writeFile("new.html", manager, (err) =>
-            err ? console.log(err) : console.log("Congratulations! You've started creating your team profile!")
-            );
-            // run function to add next member
-            nextMember();
-        });
-}
+        // const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
+        
+        // create new manager
+        const manager = new Manager(name, id, email, office)
+        // add manager to team
+        teamProfile.push(manager);
+
+        // generate strating HTML with manager info
+        // fs.writeFile("new.html", manager, (err) =>
+        // err ? console.log(err) : console.log("Congratulations! You've started creating your team profile!")
+        // );
+
+        // run function to add next employee
+        addEmployee();
+    });
+};
 
 
 
 
 
-
+// call function to start application
+addEmployee();
 
 
 
