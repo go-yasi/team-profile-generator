@@ -184,15 +184,41 @@ function generate() {
 `       <div class="manager card">
             <div class="card-head">
                 <h3 class="name">${teamProfile[i].getName()}</h3>
-                <h4 class="role">${teamProfile[i].getRole()}</h4>
+                <h4 class="role">Manager</h4>
             </div>
             <div class="card-info">
-                <p class="id">ID: ${teamProfile[i].getId()}</p>
-                <a class="email">Email:  ${teamProfile[i].getEmail()}</a>
+                <p class="id">Employee ID: ${teamProfile[i].getId()}</p>
                 <p class="office">Office: ${teamProfile[i].getOffice()}</p>
+                <p class="email">Email: <a href="mailto:${teamProfile[i].getEmail()}">${teamProfile[i].getEmail()}</a></p>
             </div>
         </div>`
-
+    } else if (teamProfile[i].getRole() === "Engineer") {
+        html +=
+`       <div class="engineer card">
+            <div class="card-head">
+                <h3 class="name">${teamProfile[i].getName()}</h3>
+                <h4 class="role">Engineer</h4>
+            </div>
+            <div class="card-info">
+                <p class="id">Employee ID: ${teamProfile[i].getId()}</p>
+                <p class="github">GitHub: <a href="https://github.com/${teamProfile[i].getGithub()}">${teamProfile[i].getGithub()}</a></p>
+                <p class="email">Email: <a href="mailto:me@me.com">${teamProfile[i].getEmail()}</a></p>
+            </div> 
+        </div>`
+    } else if (teamProfile[i].getRole() === "Intern") {
+        html +=
+`       <div class="intern card">
+            <div class="card-head">
+                <h3 class="name">${teamProfile[i].getName()}</h3>
+                <h4 class="role">Intern</h4>
+            </div>
+            <div class="card-info">
+                <p class="id">Employee ID: ${teamProfile[i].getId()}</p>
+                <p class="school">School: ${teamProfile[i].getSchool()}</p>
+                <p class="email">Email: <a href="mailto:me@me.com">${teamProfile[i].getEmail()}</a></p>
+            </div> 
+        </div>`
+    }
     }
 }
 

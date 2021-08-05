@@ -2,6 +2,7 @@ header {
     border: 2px solid red;
     height: 150px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
@@ -26,6 +27,7 @@ header {
 .card {
     border: 2px solid green;
     margin: 0 2vw;
+    flex: 1 0 auto;
 }
 
 .card-head {
@@ -44,6 +46,9 @@ h4 {
 .card-info {
     border: 1px solid purple;
     padding: 0 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .info {
