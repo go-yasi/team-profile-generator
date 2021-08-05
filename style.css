@@ -1,14 +1,17 @@
 header {
-    border: 2px solid red;
     height: 150px;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    background-color: #c22;
+    border-bottom: 10px solid #fb0;
+    font-family: 'Bebas Neue', sans-serif;
+    color: white;
+    text-transform: uppercase;
+    font-size: 37px;
 }
 
 #info-blocks {
-    border: 2px solid orange;
     padding: 2em;
 }
 

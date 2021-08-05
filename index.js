@@ -169,6 +169,9 @@ function generateHTML() {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <title>Team Profile</title>
 </head>
@@ -233,70 +236,10 @@ function generateHTML() {
 
 </body>
 </html>`;
+
     fs.writeFile("home.html", html, (err) => 
     err ? console.log(err) : console.log("Your Team profile has been generated!"))
 }
 
 // call function to start application
 addEmployee("Manager");
-
-
-
-// // function with template literal to add initial html with manager info
-// function startHTML() {
-// `
-// <!DOCTYPE html>
-// <html lang="en">
-// <head>
-//     <meta charset="UTF-8">
-//     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//     <link rel="stylesheet" href="./style.css">
-//     <title>Team Profile</title>
-// </head>
-// <body>
-//     <header>
-//         <h1>My Team</h1>
-//     </header>
-
-//     <main id="info-blocks">
-//         <div class="row">
-//             <div class="card">
-//                 <div class="card-head">
-//                     <h3 class="name">${manager.getName()}</h3>
-//                     <h4 class="role">${manager.getRole()}</h4>
-//                 </div>
-//                 <div class="card-info">
-//                     <p class="id">ID: ${manager.getId()}</p>
-//                     <a class="email">Email:  ${manager.getEmail()}</a>
-//                     <p class="office">Office: ${manager.getOffice()}</p>
-//                 </div>
-//             </div>
-// `
-// }
-
-// // function to end html 
-// function closeHTML() {
-//     const html = 
-//     `        </div>
-//     </main>
-// </body>
-// </html>`;
-
-//     fs.appendFile("new.html", html, (err) => 
-//     err ? console.log(err) : console.log("Your Team profile has been generated!")
-//     );
-// }
-
-
-
-
-
-
-
-
-
-
-
-// // call ask manager to start the application
-// addManager();
