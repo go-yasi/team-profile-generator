@@ -171,7 +171,7 @@ function generateHTML() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <title>Team Profile</title>
 </head>
@@ -181,57 +181,60 @@ function generateHTML() {
     </header>
 
     <main id="info-blocks">
+        <div class="row">
 `
     for(var i = 0; i < teamProfile.length; i++) {
         if (teamProfile[i].getRole() === "Manager") {
             html +=
 `       
-        <div class="manager card">
-            <div class="card-head">
-                <h3 class="name">${teamProfile[i].getName()}</h3>
-                <h4 class="role">Manager</h4>
+            <div class="manager card">
+                <div class="card-head">
+                    <h3 class="name">${teamProfile[i].getName()}</h3>
+                    <h4 class="role">Manager</h4>
+                </div>
+                <div class="card-info">
+                    <p class="id">Employee ID: ${teamProfile[i].getId()}</p>
+                    <p class="office">Office: ${teamProfile[i].getOffice()}</p>
+                    <p class="email">Email: <a href="mailto:${teamProfile[i].getEmail()}">${teamProfile[i].getEmail()}</a></p>
+                </div>
             </div>
-            <div class="card-info">
-                <p class="id">Employee ID: ${teamProfile[i].getId()}</p>
-                <p class="office">Office: ${teamProfile[i].getOffice()}</p>
-                <p class="email">Email: <a href="mailto:${teamProfile[i].getEmail()}">${teamProfile[i].getEmail()}</a></p>
-            </div>
-        </div>
 `
     } else if (teamProfile[i].getRole() === "Engineer") {
         html +=
 `
-       <div class="engineer card">
-            <div class="card-head">
-                <h3 class="name">${teamProfile[i].getName()}</h3>
-                <h4 class="role">Engineer</h4>
+        <div class="engineer card">
+                <div class="card-head">
+                    <h3 class="name">${teamProfile[i].getName()}</h3>
+                    <h4 class="role">Engineer</h4>
+                </div>
+                <div class="card-info">
+                    <p class="id">Employee ID: ${teamProfile[i].getId()}</p>
+                    <p class="github">GitHub: <a href="https://github.com/${teamProfile[i].getGithub()}">${teamProfile[i].getGithub()}</a></p>
+                    <p class="email">Email: <a href="mailto:${teamProfile[i].getEmail()}">${teamProfile[i].getEmail()}</a></p>
+                </div> 
             </div>
-            <div class="card-info">
-                <p class="id">Employee ID: ${teamProfile[i].getId()}</p>
-                <p class="github">GitHub: <a href="https://github.com/${teamProfile[i].getGithub()}">${teamProfile[i].getGithub()}</a></p>
-                <p class="email">Email: <a href="mailto:${teamProfile[i].getEmail()}">${teamProfile[i].getEmail()}</a></p>
-            </div> 
-        </div>
 `
     } else if (teamProfile[i].getRole() === "Intern") {
         html +=
 `       
-        <div class="intern card">
-            <div class="card-head">
-                <h3 class="name">${teamProfile[i].getName()}</h3>
-                <h4 class="role">Intern</h4>
+            <div class="intern card">
+                <div class="card-head">
+                    <h3 class="name">${teamProfile[i].getName()}</h3>
+                    <h4 class="role">Intern</h4>
+                </div>
+                <div class="card-info">
+                    <p class="id">Employee ID: ${teamProfile[i].getId()}</p>
+                    <p class="school">School: ${teamProfile[i].getSchool()}</p>
+                    <p class="email">Email: <a href="mailto:${teamProfile[i].getEmail()}">${teamProfile[i].getEmail()}</a></p>
+                </div> 
             </div>
-            <div class="card-info">
-                <p class="id">Employee ID: ${teamProfile[i].getId()}</p>
-                <p class="school">School: ${teamProfile[i].getSchool()}</p>
-                <p class="email">Email: <a href="mailto:${teamProfile[i].getEmail()}">${teamProfile[i].getEmail()}</a></p>
-            </div> 
-        </div>
 `
     }};
 
     html +=
 `
+        </div>
+
    </main>
 
 </body>
