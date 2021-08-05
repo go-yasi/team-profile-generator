@@ -1,7 +1,7 @@
 # Team Profile Generator
 
 ## Description
-The goal of this assignment was to create a Node.js command-line application that generates an HTML webpage with employee information provided by the user. This application uses the [Inquirer](https://www.npmjs.com/package/inquirer) package to collect input from the user
+The goal of this assignment was to create a Node.js command-line application that generates an HTML webpage with employee information provided by the user. This application uses the [Inquirer](https://www.npmjs.com/package/inquirer) package to collect input from the user and JavaScript template literals to generate the HTML of the homepage.
 
 ## User Story
 "As a manager, I want to generate a webpage that displays my team's basic info so that I have quick access to their emails and GitHub profiles."
