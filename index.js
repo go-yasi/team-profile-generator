@@ -12,7 +12,11 @@ const Intern = require("./lib/Intern");
 const teamProfile = [];
 
 function addEmployee(type) {
+    // console.log("-------------------------------------------");
+    // console.log("Let's build your team!");
+    console.log("-------------------------------------------");
     console.log("Please provide the " + type + "'s info:");
+    
     inquirer
     .prompt([
         {
@@ -135,7 +139,9 @@ function employeeType() {
     .prompt([
         {
             type: "list",
-            message: "Let's continue building your team! Which type of employee would you like to add?",
+            message: `-------------------------------------------
+Let's continue building your team! 
+Which type of employee would you like to add?`,
             choices: ["Manager", "Engineer", "Intern", "I'm finished building my team."],
             name: "employeeType"
         }
