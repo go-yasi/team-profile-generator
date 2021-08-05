@@ -161,7 +161,7 @@ Which type of employee would you like to add?`,
 
 // function to generate html
 function generate() {
-    var html= 
+    const html= 
 `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -218,8 +218,14 @@ function generate() {
                 <p class="email">Email: <a href="mailto:me@me.com">${teamProfile[i].getEmail()}</a></p>
             </div> 
         </div>`
-    }
-    }
+    }};
+
+    html +=
+`   </main>
+</body>
+</html>`;
+    fs.appendFile("home.html", html, (err) => 
+    err ? console.log(err) : console.log("Your Team profile has been generated!"))
 }
 
 // call function to start application
