@@ -159,33 +159,42 @@ Which type of employee would you like to add?`,
     });
 };
 
-// // function to continue adding team members
-// const nextMember = () => {
-//     return inquirer
-//         .prompt([
-//             {
-                // type: "list",
-                // message: "Let's finish building your team! Which type of employee would you like to add next?",
-                // choices: ["Engineer", "Intern", "I'm finished building my team."],
-                // name: "employee"
-//             }
-//         ])
-//         .then((answers) => {
-//             if (answers.employee === "Engineer") {
-//                 // function to ask Engineer-specific questions
-//                 addEngineer();
-//             } else if 
-//             (answers.employee === "Intern") {
-//                 // function to ask Intern-specific questions
-//                 addIntern();
-//             } else {
-//                 // need function to append closing HTML
-//                 closeHTML();
-//             }
-//         })
-// }
+// function to generate html
+function generate() {
+    var html= 
+`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Team Profile</title>
+</head>
+<body>
+    <header>
+        <h1>Team Profile</h1>
+    </header>
 
+    <main id="info-blocks">
+`
+    for(var i = 0; i < teamProfile.length; i++) {
+        if (teamProfile[i].getRole() === "Manager") {
+            html +=
+`       <div class="manager card">
+            <div class="card-head">
+                <h3 class="name">${teamProfile[i].getName()}</h3>
+                <h4 class="role">${teamProfile[i].getRole()}</h4>
+            </div>
+            <div class="card-info">
+                <p class="id">ID: ${teamProfile[i].getId()}</p>
+                <a class="email">Email:  ${teamProfile[i].getEmail()}</a>
+                <p class="office">Office: ${teamProfile[i].getOffice()}</p>
+            </div>
+        </div>`
 
+    }
+}
 
 // call function to start application
 addEmployee("Manager");
