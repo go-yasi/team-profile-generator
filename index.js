@@ -154,14 +154,15 @@ Which type of employee would you like to add?`,
         } else if (answers.employeeType === "Intern") {
             addEmployee("Intern");
         } else {
-            // function to end
+            generateHTML();
+            return;
         }
     });
 };
 
 // function to generate html
-function generate() {
-    const html= 
+function generateHTML() {
+    var html= 
 `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -181,7 +182,8 @@ function generate() {
     for(var i = 0; i < teamProfile.length; i++) {
         if (teamProfile[i].getRole() === "Manager") {
             html +=
-`       <div class="manager card">
+`       
+        <div class="manager card">
             <div class="card-head">
                 <h3 class="name">${teamProfile[i].getName()}</h3>
                 <h4 class="role">Manager</h4>
@@ -191,10 +193,12 @@ function generate() {
                 <p class="office">Office: ${teamProfile[i].getOffice()}</p>
                 <p class="email">Email: <a href="mailto:${teamProfile[i].getEmail()}">${teamProfile[i].getEmail()}</a></p>
             </div>
-        </div>`
+        </div>
+`
     } else if (teamProfile[i].getRole() === "Engineer") {
         html +=
-`       <div class="engineer card">
+`
+       <div class="engineer card">
             <div class="card-head">
                 <h3 class="name">${teamProfile[i].getName()}</h3>
                 <h4 class="role">Engineer</h4>
@@ -204,10 +208,12 @@ function generate() {
                 <p class="github">GitHub: <a href="https://github.com/${teamProfile[i].getGithub()}">${teamProfile[i].getGithub()}</a></p>
                 <p class="email">Email: <a href="mailto:me@me.com">${teamProfile[i].getEmail()}</a></p>
             </div> 
-        </div>`
+        </div>
+`
     } else if (teamProfile[i].getRole() === "Intern") {
         html +=
-`       <div class="intern card">
+`       
+        <div class="intern card">
             <div class="card-head">
                 <h3 class="name">${teamProfile[i].getName()}</h3>
                 <h4 class="role">Intern</h4>
@@ -217,7 +223,8 @@ function generate() {
                 <p class="school">School: ${teamProfile[i].getSchool()}</p>
                 <p class="email">Email: <a href="mailto:me@me.com">${teamProfile[i].getEmail()}</a></p>
             </div> 
-        </div>`
+        </div>
+`
     }};
 
     html +=
