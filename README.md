@@ -1,18 +1,12 @@
 # Team Profile Generator
 
 ## Description
-
 The goal of this assignment was to create a Node.js command-line application that generates an HTML webpage with employee information provided by the user. This application uses the [Inquirer](https://www.npmjs.com/package/inquirer) package to collect input from the user
 
 ## User Story
-
-```md
 "As a manager, I want to generate a webpage that displays my team's basic info so that I have quick access to their emails and GitHub profiles."
-```
 
 ## Acceptance Criteria
-
-```md
 GIVEN a command-line application that accepts user input
 WHEN I am prompted for my team members and their information
 THEN an HTML file is generated that displays a nicely formatted team roster based on user input
@@ -30,15 +24,14 @@ WHEN I select the intern option
 THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
 WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated
-```
+
 
 ## Usage
+[Here](https://github.com/go-yasi/team-profile-generator) is a link to the GitHub repository with the application's code.  
 
-[Here](https://go-yasi.github.io/team-profile-generator/) is a link to deployed application.  
 [Here](https://www.loom.com/share/011eae00f5bb4878ab2a7053f10c3c09) is a link to a video walkthrough demonstrating the application's functionality. 
 
 ## Mock-Up
-
 The following image shows a mock-up of the generated HTML’s appearance and functionality:
 
 ![HTML webpage titled “Team Profile” featuring four boxes with employee names, titles, and other key info.](./assets/team-profile-generated-webpage.png)  
