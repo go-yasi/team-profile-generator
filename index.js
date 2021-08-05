@@ -202,14 +202,14 @@ function generateHTML() {
     } else if (teamProfile[i].getRole() === "Engineer") {
         html +=
 `
-        <div class="engineer card">
+            <div class="engineer card">
                 <div class="card-head">
                     <h3 class="name">${teamProfile[i].getName()}</h3>
                     <h4 class="role">Engineer</h4>
                 </div>
                 <div class="card-info">
                     <p class="id">Employee ID: ${teamProfile[i].getId()}</p>
-                    <p class="github">GitHub: <a href="https://github.com/${teamProfile[i].getGithub()}">${teamProfile[i].getGithub()}</a></p>
+                    <p class="github">GitHub: <a href="https://github.com/${teamProfile[i].getGithub()}">@${teamProfile[i].getGithub()}</a></p>
                     <p class="email">Email: <a href="mailto:${teamProfile[i].getEmail()}">${teamProfile[i].getEmail()}</a></p>
                 </div> 
             </div>

@@ -53,7 +53,7 @@ h1 {
 h3 {
     
     font-family: 'Bebas Neue', sans-serif;
-    margin: .5em 0 .3em;
+    margin: .5em 0 0em;
     font-size: 36px;
 }
 
@@ -66,7 +66,9 @@ h4 {
 p, a {
     font-family: 'Roboto', sans-serif;
 }
-
+body {
+     background-color: #ececec;
+}
 header {
     height: 15vw;
     display: flex;
@@ -77,49 +79,40 @@ header {
     color: white;
 }
 
-#info-blocks {
-    padding: 2em;
-}
-
 .row {
-    border: 2px solid yellow;
     padding: 1em;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
-.manager-card {
-    border: 2px solid green;
-    margin: 0 2vw;
-} 
-
 .card {
-    border: 2px solid green;
     margin: 0 2vw;
     flex: 1 0 auto;
 }
 
 .card-head {
-    border: 1px solid blue;
     padding: 0 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-h4 {
-    margin-top: 0;
+    color: white;
+    background-color: black;
+    border-bottom: 5px solid #c22;
 }
 
 .card-info {
-    border: 1px solid purple;
-    padding: 0 1em;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: white;
+    padding: 1em;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.info {
-    border: 1px solid pink;
+.name, .role, .email, .office, .github, .school {
+    margin-top: .68em;
 }
