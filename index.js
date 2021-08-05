@@ -206,7 +206,7 @@ function generateHTML() {
             <div class="card-info">
                 <p class="id">Employee ID: ${teamProfile[i].getId()}</p>
                 <p class="github">GitHub: <a href="https://github.com/${teamProfile[i].getGithub()}">${teamProfile[i].getGithub()}</a></p>
-                <p class="email">Email: <a href="mailto:me@me.com">${teamProfile[i].getEmail()}</a></p>
+                <p class="email">Email: <a href="mailto:${teamProfile[i].getEmail()}">${teamProfile[i].getEmail()}</a></p>
             </div> 
         </div>
 `
@@ -221,17 +221,19 @@ function generateHTML() {
             <div class="card-info">
                 <p class="id">Employee ID: ${teamProfile[i].getId()}</p>
                 <p class="school">School: ${teamProfile[i].getSchool()}</p>
-                <p class="email">Email: <a href="mailto:me@me.com">${teamProfile[i].getEmail()}</a></p>
+                <p class="email">Email: <a href="mailto:${teamProfile[i].getEmail()}">${teamProfile[i].getEmail()}</a></p>
             </div> 
         </div>
 `
     }};
 
     html +=
-`   </main>
+`
+   </main>
+
 </body>
 </html>`;
-    fs.appendFile("home.html", html, (err) => 
+    fs.writeFile("home.html", html, (err) => 
     err ? console.log(err) : console.log("Your Team profile has been generated!"))
 }
 
